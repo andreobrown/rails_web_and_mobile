@@ -23,7 +23,7 @@
 
   <div class="field">
     <%= form.label :status %>
-    <%= form.text_field :status %>
+    <%= form.select :status, Order.statuses.keys.map { |w| [w.humanize, w] } %>
   </div>
 
   <div class="actions">

@@ -14,9 +14,11 @@ class OrdersTest < ApplicationSystemTestCase
     visit orders_url
     click_on "New Order"
 
+    assert_select "Status", options: ["Submitted", "Ready", "Filled"]
+
     fill_in "Item", with: @order.item
     fill_in "Quantity", with: @order.quantity
-    fill_in "Status", with: @order.status
+    select @order.status, from: "Status", match: :first
     click_on "Create Order"
 
     assert_text "Order was successfully created"
@@ -29,7 +31,7 @@ class OrdersTest < ApplicationSystemTestCase
 
     fill_in "Item", with: @order.item
     fill_in "Quantity", with: @order.quantity
-    fill_in "Status", with: @order.status
+    select @order.status, from: "Status", match: :first
     click_on "Update Order"
 
     assert_text "Order was successfully updated"

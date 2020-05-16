@@ -1,11 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  item: MyString
+  item: Oranges
   quantity: 1
-  status: MyString
+  status: Submitted
 
 two:
-  item: MyString
+  item: Apples
   quantity: 1
-  status: MyString
+  status: Ready
