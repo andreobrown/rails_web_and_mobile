@@ -63,3 +63,5 @@ Devise is used for authentication and was setup as follows:
 2. Redirect Customer to Orders page after login
 
 3. Add Login and Logout links
+
+4. Require that Customer be signed in to access Orders

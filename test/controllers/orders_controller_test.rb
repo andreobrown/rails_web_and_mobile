@@ -1,8 +1,15 @@
-require 'test_helper'
+require "test_helper"
 
 class OrdersControllerTest < ActionDispatch::IntegrationTest
   setup do
     @order = orders(:one)
+    sign_in customers(:one)
+  end
+
+  test "should not be able to access orders if not logged in" do
+    sign_out customers(:one)
+    get orders_url
+    assert_redirected_to new_customer_session_path
   end
 
   test "should get index" do
@@ -16,7 +23,7 @@ class OrdersControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should create order" do
-    assert_difference('Order.count') do
+    assert_difference("Order.count") do
       post orders_url, params: { order: { item: @order.item, quantity: @order.quantity, status: @order.status } }
     end
 
@@ -39,7 +46,7 @@ class OrdersControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should destroy order" do
-    assert_difference('Order.count', -1) do
+    assert_difference("Order.count", -1) do
       delete order_url(@order)
     end
 
