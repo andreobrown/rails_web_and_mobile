@@ -7,7 +7,9 @@
 one:
   email: test@example.com
   encrypted_password: <%= BCrypt::Password.create("insecure@", cost: 1) %>
+  jti: <%= SecureRandom.uuid %>
 
 two:
   email: test2@example.com
   encrypted_password: <%= BCrypt::Password.create("insecure@", cost: 1) %>
+  jti: <%= SecureRandom.uuid %>
