@@ -136,3 +136,13 @@ This section [follows this guide](https://medium.com/@brentkearney/json-web-toke
     ```
 
     `rails db:migrate`
+
+5. Update the Customer model to ensure that the jti column is filled out at time of Customer creation
+
+    ```
+    before_create :add_jti
+    
+    def add_jti
+        self.jti ||= SecureRandom.uuid
+    end
+    ```
