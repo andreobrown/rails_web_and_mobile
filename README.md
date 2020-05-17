@@ -81,3 +81,8 @@ Devise is used for authentication and was setup as follows:
    Only return Customer's orders when listing and searching.
    Associate Orders to Customers on creation (using `current_customer`).
    
+### Add Token Authentication
+
+This section [follows this guide](https://medium.com/@brentkearney/json-web-token-jwt-and-html-logins-with-devise-and-ruby-on-rails-5-9d5e8195193d).
+
+1. Add [`devise-jwt`](https://github.com/waiting-for-dev/devise-jwt) gem
