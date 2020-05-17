@@ -65,3 +65,13 @@ Devise is used for authentication and was setup as follows:
 3. Add Login and Logout links
 
 4. Require that Customer be signed in to access Orders
+
+### Associate Orders to Customers
+
+1. Generate migration to create association
+
+    `rails generate migration AddCustomerReferenceToOrders customer:belongs_to`
+
+2. Run the migration
+
+    `rails db:migrate`
