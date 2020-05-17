@@ -243,3 +243,12 @@ This section [follows this guide](https://medium.com/@brentkearney/json-web-toke
         end
     end
     ```
+9. Add “new” view in json format
+
+   If this file isn't added, the follow error is generated when attempting to login:
+
+   ```
+   undefined method `api_customers_url' for #<Api::SessionsController:0x00007fb9ded22298> Did you mean? api_customer_session_url
+
+   actionpack (5.2.4.2) lib/action_dispatch/routing/polymorphic_routes.rb:232:in `polymorphic_method'
+   ```
