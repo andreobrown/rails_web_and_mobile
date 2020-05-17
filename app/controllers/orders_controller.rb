@@ -5,12 +5,13 @@ class OrdersController < ApplicationController
   # GET /orders
   # GET /orders.json
   def index
-    @orders = Order.all
+    @orders = current_customer.orders
   end
 
   # GET /orders/1
   # GET /orders/1.json
   def show
+    @order = current_customer.orders.find(params[:id])
   end
 
   # GET /orders/new
@@ -26,6 +27,7 @@ class OrdersController < ApplicationController
   # POST /orders.json
   def create
     @order = Order.new(order_params)
+    @order.customer = current_customer
 
     respond_to do |format|
       if @order.save
@@ -72,5 +74,11 @@ class OrdersController < ApplicationController
   # Only allow a list of trusted parameters through.
   def order_params
     params.require(:order).permit(:item, :quantity, :status)
+  end
+
+  # Redirect to orders index page if user tried to access an order that doesn't exist
+  # or that they don't have access to
+  rescue_from ActiveRecord::RecordNotFound do
+    redirect_to orders_url, alert: "Order does not exist."
   end
 end

@@ -52,4 +52,11 @@ class OrdersControllerTest < ActionDispatch::IntegrationTest
 
     assert_redirected_to orders_url
   end
+
+  test "should not be able to access orders of another customer" do
+    sign_out customers(:one)
+    sign_in customers(:two)
+    get order_url(orders(:one))
+    assert_redirected_to orders_url
+  end
 end

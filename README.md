@@ -75,3 +75,9 @@ Devise is used for authentication and was setup as follows:
 2. Run the migration
 
     `rails db:migrate`
+
+3. Restrict Customers to their Orders
+
+   Only return Customer's orders when listing and searching.
+   Associate Orders to Customers on creation (using `current_customer`).
+   

@@ -4,8 +4,10 @@ one:
   item: Oranges
   quantity: 1
   status: Submitted
+  customer: one
 
 two:
   item: Apples
   quantity: 1
   status: Ready
+  customer: two
