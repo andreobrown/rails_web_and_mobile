@@ -86,3 +86,13 @@ Devise is used for authentication and was setup as follows:
 This section [follows this guide](https://medium.com/@brentkearney/json-web-token-jwt-and-html-logins-with-devise-and-ruby-on-rails-5-9d5e8195193d).
 
 1. Add [`devise-jwt`](https://github.com/waiting-for-dev/devise-jwt) gem
+
+2. Configure Devise and Warden for JWT
+
+    A few things that I don't understand here:
+
+    * What exactly do these changes do and why are they needed?
+
+    * skip_session_storage - what's the purpose of setting this?
+
+    * config.navigational_formats - why does this need to be set? 
