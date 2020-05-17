@@ -8,6 +8,7 @@ class CustomersTest < ApplicationSystemTestCase
   test "visiting the login page" do
     visit new_customer_registration_url
     assert_selector "h2", text: "Sign up"
+    assert_selector "a", text: "Login"
   end
 
   test "sign up a Customer" do
