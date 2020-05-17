@@ -60,3 +60,5 @@ Devise is used for authentication and was setup as follows:
 
     `rails generate devise Customer`
 
+2. Redirect Customer to Orders page after login
+
