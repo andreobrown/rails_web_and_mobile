@@ -96,3 +96,16 @@ This section [follows this guide](https://medium.com/@brentkearney/json-web-toke
     * skip_session_storage - what's the purpose of setting this?
 
     * config.navigational_formats - why does this need to be set? 
+
+3. Configure routes for API login and logout
+
+    Questions:
+
+    * Why is the following code needed inside the api route:
+
+        ```
+        devise_scope :customer do
+            get "login", to: "customers/sessions#new"
+            delete "logout", to: "customers/sessions#destroy"
+        end
+        ```
