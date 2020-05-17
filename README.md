@@ -44,6 +44,24 @@ All the plumbing for Orders were generated using scaffolding:
 
 Added some placeholder pages for Home and About.
 
-1. rails g controller Pages home about
+1. `rails g controller Pages home about`
 
 2. Set application root to the Home page
+
+### Add Devise Authentication
+
+Devise is used for authentication and was setup as follows:
+
+1. Add Devise gem to the Gemfile and install as documented in the [Getting Started Guide](https://github.com/heartcombo/devise#getting-started). The only change is that I specified the version of Devise in the Gemfile.
+
+### Add Customer
+
+1. Add Devise Customer model
+
+    `rails generate devise Customer`
+
+2. Redirect Customer to Orders page after login
+
+3. Add Login and Logout links
+
+4. Require that Customer be signed in to access Orders
