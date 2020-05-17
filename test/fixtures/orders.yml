@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  item: Oranges
+  quantity: 1
+  status: Submitted
+
+two:
+  item: Apples
+  quantity: 1
+  status: Ready
