@@ -252,3 +252,11 @@ This section [follows this guide](https://medium.com/@brentkearney/json-web-toke
 
    actionpack (5.2.4.2) lib/action_dispatch/routing/polymorphic_routes.rb:232:in `polymorphic_method'
    ```
+
+10. Add jwt_key_base to credentials file
+    
+    Generate the key with `rake secret`
+
+    Run `rails credentials:edit`
+
+    Add the generated key as `jwt_key_base`.
