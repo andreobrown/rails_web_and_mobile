@@ -141,8 +141,26 @@ This section [follows this guide](https://medium.com/@brentkearney/json-web-toke
 
     ```
     before_create :add_jti
-    
+
     def add_jti
         self.jti ||= SecureRandom.uuid
     end
     ```
+
+6. Add an ApiCustomer model, as a sub-class of Customer
+
+    ```
+    class ApiCustomer < Customer
+        include Devise::JWT::RevocationStrategies::JTIMatcher
+        devise :jwt_authenticatable, jwt_revocation_strategy: self
+        validates :jti, presence: true
+
+        def generate_jwt
+            JWT.encode({ id: id,
+                        exp: 1.day.from_now.to_i },
+                    Rails.env.devise.jwt.secret_key)
+        end
+    end
+    ```
+
+    Question: why couldn't this have been in the regular Customer model?
