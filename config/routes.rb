@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 
   namespace :api do
     devise_for :customers, defaults: { format: :json },
-                           class_name: "ApiCustomer",
+                           #class_name: "ApiCustomer",
                            skip: [:registrations, :invitations,
                                   :passwords, :confirmations,
                                   :unlocks],

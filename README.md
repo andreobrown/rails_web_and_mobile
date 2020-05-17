@@ -109,3 +109,30 @@ This section [follows this guide](https://medium.com/@brentkearney/json-web-toke
             delete "logout", to: "customers/sessions#destroy"
         end
         ```
+
+4. Update the Customer table to add field for jti
+
+   We are using the [JTIMatcher recovation strategy](https://github.com/waiting-for-dev/devise-jwt#revocation-strategies)
+
+   I had to uncomment `class_name: "ApiCustomer",` in `routes.rb` to get this to run, since the model hasn't been setup yet.
+   
+   Update the Customer table using the following migration:
+
+   `rails generate migration AddJTIToCustomers`
+
+   ```
+   #db/migrate/20200517053419_add_jti_to_customers.rb
+   class AddJtiToCustomers < ActiveRecord::Migration[5.2]
+    def change
+        add_column :customers, :jti, :string
+        # populate jti so we can make it not nullable
+        Customer.all.each do |customer|
+        customer.update_column(:jti, SecureRandom.uuid)
+        end
+        change_column_null :customers, :jti, false
+        add_index :customers, :jti, unique: true
+    end
+    end
+    ```
+
+    `rails db:migrate`
