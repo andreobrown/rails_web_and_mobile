@@ -40,3 +40,10 @@ All the plumbing for Orders were generated using scaffolding:
 
 4. Added dropdown list for Order `status`. Status is implemented as an [enum](https://api.rubyonrails.org/v5.2.3/classes/ActiveRecord/Enum.html) with [string values](https://sipsandbits.com/2018/04/30/using-database-native-enums-with-rails/) and dropdown list is populated using the [enum attriubutes](https://stackoverflow.com/a/23686698).
 
+### Adding Pages
+
+Added some placeholder pages for Home and About.
+
+1. rails g controller Pages home about
+
+2. Set application root to the Home page
